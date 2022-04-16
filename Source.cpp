@@ -38,8 +38,6 @@ void animation::Out(ofstream& ofst) {
 		ofst << "It is animation film. It's way of creation is stop motion" << endl;
 		break;
 	}
-
-	//ofst << "It is animation film. It's way of creation is " << woc << endl;
 }
 film* film::In(ifstream& ifst) {
 	film* fl;
@@ -98,10 +96,6 @@ void container::In(ifstream& ifst) {
 void container::Out(ofstream& ofst) {
 	ofst << "Container contents " << size
 		<< " elements." << endl;
-	/*for (int i = 0; i < size; i++) {
-		ofst << i << ": ";
-		cont[i]->Out(ofst);
-	}*/
 	int i = 0;
 	curr = head;
 	while (curr != NULL)

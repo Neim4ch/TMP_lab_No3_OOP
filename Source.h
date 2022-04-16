@@ -13,7 +13,6 @@ public:
 	film* pic;
 	Node* next;
 	Node(film* newfigure);
-	//~Node() {}
 };
 class feature : public film {
 	string director;
@@ -30,8 +29,15 @@ public:
 	void Out(ofstream& ofst);
 	animation() {}
 };
-class container {
+class documentary : public film {
+	int year;
+public:
+	void InData(ifstream& ifst);
+	void Out(ofstream& ofst);
+	documentary() {}
+};
 
+class container {
 public:
 	Node* head;
 	Node* curr;

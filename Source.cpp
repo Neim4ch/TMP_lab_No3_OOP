@@ -38,8 +38,6 @@ void animation::Out(ofstream& ofst) {
 		ofst << "It is animation film. It's way of creation is stop motion" << endl;
 		break;
 	}
-
-	//ofst << "It is animation film. It's way of creation is " << woc << endl;
 }
 film* film::In(ifstream& ifst) {
 	film* fl;
@@ -56,6 +54,8 @@ film* film::In(ifstream& ifst) {
 		return 0;
 	}
 	fl->InData(ifst);
+
+	ifst >> fl->country;
 	return fl;
 }
 Node::Node(film* newpic)
@@ -98,16 +98,13 @@ void container::In(ifstream& ifst) {
 void container::Out(ofstream& ofst) {
 	ofst << "Container contents " << size
 		<< " elements." << endl;
-	/*for (int i = 0; i < size; i++) {
-		ofst << i << ": ";
-		cont[i]->Out(ofst);
-	}*/
 	int i = 0;
 	curr = head;
 	while (curr != NULL)
 	{
 		ofst << i << ": ";
 		curr->pic->Out(ofst);
+		ofst << "The picture was filmed in " << curr->pic->country << ".\n";
 		curr = curr->next;
 		i++;
 	}

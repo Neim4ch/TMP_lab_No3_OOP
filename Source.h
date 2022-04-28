@@ -14,7 +14,7 @@ public:
 	int countVowels(); // ??????? 
 	void OutName(ofstream& ofst);
 	bool cmp(film& f);
-	virtual void OutFeature(ofstream& ofst) = 0;
+	virtual void OutFeature(ofstream& ofst);
 };
 class Node {
 public:
@@ -38,11 +38,11 @@ public:
 	// ?????????????? ????????? ??????
 	void InData(ifstream& ifst); // ????
 	void Out(ofstream& ofst); // ?????
-	int countVowels();
-
-	void OutFeature(ofstream& ofst);
+	
+	//void OutFeature(ofstream& ofst);
 	animation() {}
 };
+
 class documentary : public film {
 	int year;
 public:
@@ -51,6 +51,7 @@ public:
 
 	documentary() {}
 };
+
 class container {
 public:
 	Node* head;
@@ -60,7 +61,9 @@ public:
 	void In(ifstream& ifst); 
 	void Out(ofstream& ofst);
 	void OutFeature(ofstream& ofst); 
+	void OutCntVowels(ofstream& ofst);
 	void Clear();
+	void Sort();
 	container(); 
 	~container() { Clear(); } 
 };

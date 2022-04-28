@@ -6,6 +6,13 @@ void feature::InData(ifstream& ifst) {
 void feature::Out(ofstream& ofst) {
 	ofst << "It is feature film. Director is " << director << endl;
 }
+
+void documentary::InData(ifstream& ifst) {
+	ifst >> year;
+}
+void documentary::Out(ofstream& ofst) {
+	ofst << "It is documentary film. It's year of creation is " << year << endl;
+}
 void animation::InData(ifstream& ifst) {
 	int t;
 	ifst >> t;
@@ -56,9 +63,12 @@ film* film::In(ifstream& ifst) {
 	switch (k) {
 	case 1:
 		fl = new feature;
-		break;
+ 		break;
 	case 2:
 		fl = new animation;
+		break;
+	case 3:
+		fl = new documentary;
 		break;
 	default:
 		return 0;
@@ -164,7 +174,7 @@ void feature::OutFeature(ofstream& ofst)
 {
 	Out(ofst);
 }
-void animation::OutFeature(ofstream& ofst)
+void film::OutFeature(ofstream& ofst)
 {
 	ofst << endl;
 }

@@ -160,3 +160,23 @@ void film::OutName(ofstream& ofst)
 {
 	ofst << "This is " << name << ". ";
 }
+void feature::OutFeature(ofstream& ofst)
+{
+	Out(ofst);
+}
+void animation::OutFeature(ofstream& ofst)
+{
+	ofst << endl;
+}
+
+void container::OutFeature(ofstream& ofst) {
+	int i = 0;
+	curr = head;
+	while (curr != NULL)
+	{
+		ofst << i << ": ";
+		if (curr->pic)curr->pic->OutFeature(ofst);
+		curr = curr->next;
+		i++;
+	}
+}
